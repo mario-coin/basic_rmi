@@ -1,4 +1,4 @@
-package main.java.sync;
+package main.java.unsync;
 
 import java.rmi.Naming;
 import java.rmi.RemoteException;
@@ -30,14 +30,14 @@ public class BankServer extends UnicastRemoteObject implements BankRemote {
     }
 
     @Override
-    public synchronized double getBalance() throws RemoteException {
+    public double getBalance() throws RemoteException {
         delayMethod();
 
         return overallBalance;
     }
 
     @Override
-    public synchronized String withdraw(double value) throws RemoteException {
+    public String withdraw(double value) throws RemoteException {
         delayMethod();
         
         if (value <= overallBalance && value > 0) {
@@ -49,7 +49,7 @@ public class BankServer extends UnicastRemoteObject implements BankRemote {
     }
 
     @Override
-    public synchronized String deposit(double value) throws RemoteException {
+    public String deposit(double value) throws RemoteException {
         delayMethod();
 
         if (value > 0) {

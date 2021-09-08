@@ -1,12 +1,9 @@
-package src.main.java.sync;
+package main.java;
 
 import java.rmi.Naming;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import src.main.java.BankRemote;
-import src.main.java.BankRemoteConstants;
 
 public class BankClient {
 
