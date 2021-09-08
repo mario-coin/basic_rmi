@@ -49,18 +49,19 @@ public class BankClient {
     public static void main(String args[])
     {
         List<BankClient> clients = Collections.synchronizedList(new ArrayList<BankClient>());
+        
         for (int i = 0; i < clientsCount; i++) {
             clients.add(new BankClient());
         }
 
         clients.forEach(client ->
-        {
-            double depositValue = 10;
-            double withdrawValue = 5;
+            new Thread(() -> {
+                double depositValue = 5;
+                double withdrawValue = 5;
 
-            client.deposit(depositValue);
-            client.withdraw(withdrawValue);
-            client.getBalance();
-        });
+                client.deposit(depositValue);
+                client.withdraw(withdrawValue);
+                client.getBalance();
+        }).start());
     }
 }
